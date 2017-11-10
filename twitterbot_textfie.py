@@ -10,3 +10,7 @@ api = tweepy.API(auth)
 my_file = open('verne.txt', 'r')
 
 # Read lines one by one from my_file and assign to file_lines variable
+file_lines = my_file.readlines()
+
+# Close the file
+my_file.close()
