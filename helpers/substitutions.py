@@ -1,48 +1,38 @@
 substitutions = {
 "witness": "dude I know",
 "witnesses": "theese dudes I know",
-"new study": "tumbler post",
 "rebuild": "avenge",
 "space": "spaaaace",
-"google glass": "Virtual Boy",
 "smartphone": "Pokédex",
 "electric": "atomic",
 "car": "cat",
 "cars": "cats",
 "election": "eating contest",
-"congressional leaders": "river spirits",
-"homeland security": "homestar runner",
-"could not be reached for comment": "is guilty and everyone knows it"
+"debate": "dance-off",
+"poll": "physic reading",
+"candidate": "airbender",
+"drone": "dog",
+"successfully": "suddenly",
+"expands": "physically expands",
+"first-degree": "friggin' auful",
+"second-degree": "friggin' auful",
+"third-degree": "friggin' auful",
+"global": "spherical",
+"candidate": "airbender",
+"year": "minutes",
+"minutes": "years",
+"horsepower": "tons of horsemeat",
+"gaffe": "magic spell",
+"ancient": "haunted",
+"star-studded": "blood-soaked",
+"surprising": "surprising (but not to me)",
+"surprisingly": "surprisingly (but not to me)",
+"tension": "sexual tension",
+"email": "poem",
+"tweet": "poem",
+"latest": "final",
+"disrupt": "destroy",
+"meeting": "ménage à trois",
+"scientist": "Chaning Tatum and his friends",
+"scientists": "Chaning Tatum and his friends",
 }
-
-def substitute_word(word):
-    return substitutions[word]
-
-
-def contains_keyword(phrase):
-    phrase = phrase.split()
-    for word in phrase:
-        if (word in substitutions):
-            return True
-    else:
-        return False
-
-
-def is_keyword(word):
-    if (word in substitutions):
-        return True
-    else:
-        return False
-
-def substitute_keywords(phrase):
-    if contains_keyword(phrase):
-        new_phrase = ""
-        phrase = phrase.split()
-        for word in phrase:
-            if is_keyword(word):
-                new_phrase += " "
-                new_phrase += substitutions[word]
-            else:
-                new_phrase += " "
-                new_phrase += word
-        return new_phrase
