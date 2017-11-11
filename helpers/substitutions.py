@@ -46,8 +46,3 @@ def substitute_keywords(phrase):
                 new_phrase += " "
                 new_phrase += word
         return new_phrase
-
-
-# phrase = "a witness affirms that a new study proves cars contaminate more than we thought before"
-
-print(substitute_keywords("a witness affirms that a new study proves cars contaminate more than we thought before congressional leaders"))

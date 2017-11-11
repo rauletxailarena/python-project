@@ -1,7 +1,7 @@
 import tweepy
 from time import sleep
 from helpers.credentials import *
-from sentiment_analysis import *
+from helpers.sentiment_analysis_helper import *
 from textblob import TextBlob
 
 # Access and authorize our Twitter credentials from credentials.py
@@ -50,22 +50,6 @@ def get_tweets_by_user(username, number_of_tweets):
         result.append(tweet)
     return result
 #
-
-tweets = get_tweets_by_user("@googlenews", 10)
-
-list_of_tweets = []
-for tweet in tweets:
-    list_of_tweets.append(tweet.text)
-print(list_of_tweets)
-
-
-
-
-
-
-
-
-
 
 
 

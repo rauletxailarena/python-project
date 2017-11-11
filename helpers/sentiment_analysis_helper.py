@@ -20,9 +20,3 @@ def analize_sentiment(tweet):
         return 0
     else:
         return -1
-
-# happy = analize_sentiment("Today is a great day to fucking die")
-# sad = analize_sentiment("Death destruction bad things")
-#
-# print("This should be happy", happy)
-# print("This should be sad", sad)
