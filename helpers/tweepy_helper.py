@@ -1,6 +1,8 @@
 import tweepy
 from time import sleep
-from credentials import *
+from helpers.credentials import *
+from sentiment_analysis import *
+from textblob import TextBlob
 
 # Access and authorize our Twitter credentials from credentials.py
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -22,28 +24,43 @@ def get_tweets():
         for tweet in tweets:
             result.append(tweet)
     return result
+#
 
 
 
-# iterate over tweets with #ocean, limit to 10
-def tweet_example():
-    for tweet in tweepy.Cursor(api.search, q='#ocean').items(10):
+def get_tweets_by_hashtag(hashtag, number_of_tweets):
+    result = []
+    for tweet in tweepy.Cursor(api.search, q=hashtag).items(number_of_tweets):
         try:
             print("\nTweet by: @" + tweet.user.screen_name)
-
-            tweet = "@{} Ey! how is it going?".format(tweet.user.screen_name)
-
-            api.update_status(tweet)
-
-            sleep(5)
+            result.append(tweet)
+            # sleep(5)
         except tweepy.TweepError as e:
             print (e.reason)
         except StopIteration:
             break
+    return result
+#
+
+def get_tweets_by_user(username, number_of_tweets):
+
+    result = []
+    tweets = (api.user_timeline(screen_name=username, count=number_of_tweets))
+    for tweet in tweets:
+        result.append(tweet)
+    return result
+#
+
+tweets = get_tweets_by_user("@googlenews", 10)
+
+list_of_tweets = []
+for tweet in tweets:
+    list_of_tweets.append(tweet.text)
+print(list_of_tweets)
 
 
-tweets = get_tweets()
-print(len(tweets))
+
+
 
 
 
