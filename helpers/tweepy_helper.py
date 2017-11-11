@@ -3,28 +3,12 @@ from time import sleep
 from helpers.credentials import *
 from helpers.sentiment_analysis_helper import *
 from textblob import TextBlob
+from helpers.news_accounts import *
 
 # Access and authorize our Twitter credentials from credentials.py
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
-
-
-###################################################################
-
-
-news_accounts = ["BreakingNews", "BBCBreaking", "cnnbrk", "WSJbreakingnews", "ReutersLive",
-"CBSTopNews", "AJELive", "SkyNewsBreak", "ABCNewsLive", "TWCBreaking"]
-
-
-def get_tweets():
-    result = []
-    for account_name in news_accounts:
-        tweets = (api.user_timeline(screen_name="BreakingNews", count=10))
-        for tweet in tweets:
-            result.append(tweet)
-    return result
-#
 
 
 

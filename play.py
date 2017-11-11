@@ -2,7 +2,8 @@ from helpers.substitutions import *
 from helpers.tweepy_helper import *
 from helpers.substitution_helper import *
 
-substitute_keywords("Hello")
 
-a = get_sustitutability_index("rebuild electric cat lo otros fa disrupt index latest")
-print(a)
+for account in news_accounts:
+    tweets = get_tweets_by_user(account, 1)
+    print("tweet by: ", tweets[0].user.screen_name)
+    print("tweet content: ", tweets[0].text)
