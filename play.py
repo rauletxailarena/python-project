@@ -2,9 +2,8 @@ from helpers.substitutions import *
 from helpers.tweepy_helper import *
 from helpers.substitution_helper import *
 
+a = get_tweets_by_news_accounts(1)
 
-phrase1 = "This is a phrase"
-phrase2 = "This is another phrase"
-
-a = get_most_used_words([phrase1, phrase2])
-print (a)
+for list_of_tweets in a:
+    for tweet in list_of_tweets:
+        print(tweet.text)

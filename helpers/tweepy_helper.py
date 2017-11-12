@@ -27,7 +27,6 @@ def get_tweets_by_hashtag(hashtag, number_of_tweets):
 #
 
 def get_tweets_by_user(username, number_of_tweets):
-
     result = []
     tweets = (api.user_timeline(screen_name=username, count=number_of_tweets))
     for tweet in tweets:
@@ -35,6 +34,12 @@ def get_tweets_by_user(username, number_of_tweets):
     return result
 #
 
+def get_tweets_by_news_accounts(number_of_tweets):
+    result = []
+    for account in news_accounts:
+        print("Getting tweets from ", account)
+        result.append(get_tweets_by_user(account, number_of_tweets))
+    return result
 
 
 # Another way to query tweets:
