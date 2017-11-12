@@ -7,6 +7,7 @@ def substitute_word(word):
 def contains_keyword(phrase):
     phrase = phrase.split()
     for word in phrase:
+        word = word.lower()
         if (word in substitutions):
             return True
     else:
@@ -14,6 +15,7 @@ def contains_keyword(phrase):
 
 
 def is_keyword(word):
+    word = word.lower()
     if (word in substitutions):
         return True
     else:
@@ -39,3 +41,15 @@ def get_sustitutability_index(phrase):
         if is_keyword(word):
             index += 1
     return index
+
+def get_most_used_words(list_of_phrases):
+    result = {}
+    for phrase in list_of_phrases:
+        phrase = phrase.split()
+        for word in phrase:
+            word = word.lower()
+            if word in result:
+                result[word] += 1
+            else:
+                result[word] = 1
+    return result
