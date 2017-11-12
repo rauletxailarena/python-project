@@ -50,3 +50,19 @@ def get_most_used_words_from_news_accounts(number_of_tweets):
     tweets_text = [clean_tweet(tweet.text) for tweet in tweets]
     result = get_most_used_words(tweets_text)
     return result
+
+def get_ranking(words_dictionary):
+    result = {}
+    for word in words_dictionary:
+        print (words_dictionary[word])
+        if words_dictionary[word] in result:
+            result[words_dictionary[word]].append(word)
+        else:
+            result[words_dictionary[word]] = [word]
+    return result
+
+def print_ordered_ranking(ranking):
+    list_of_keys = list(reversed(sorted(ranking.keys())))
+    for key in list_of_keys:
+        print("Words with " + str(key) + " occurrences: " + str(ranking[key]))
+        print()  

@@ -36,7 +36,7 @@ def get_tweets_by_user(username, number_of_tweets):
 
 def get_tweets_from_news_accounts(number_of_tweets):
     result = []
-    for account in news_accounts:
+    for account in long_news_accounts:
         print("Getting tweets from ", account)
         result.append(get_tweets_by_user(account, number_of_tweets))
     flat_result = []

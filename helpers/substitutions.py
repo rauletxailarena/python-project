@@ -66,5 +66,10 @@ substitutions = {
 "win votes": "find Pokémon",
 "behind the headlines": "beyond the grave",
 "facebook ceo": "this guy",
-"you won't believe": "I'm really sad about"
+"you won't believe": "I'm really sad about",
+"trump": "Rick Astley",
+"sexual": "a bit awkard",
+"county": "piece of land",
+"misconduct": "being a piece of shit",
+
 }
