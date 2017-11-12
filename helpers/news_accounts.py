@@ -1,2 +1,5 @@
-news_accounts = ["BreakingNews", "BBCBreaking", "cnnbrk", "WSJbreakingnews", "ReutersLive",
-"CBSTopNews", "SkyNewsBreak", "ABCNewsLive", "TWCBreaking", "forbes"]
+news_accounts = ["BBCBreaking", "cnnbrk", "SkyNewsBreak"]
+
+
+long_news_account = ["BBCBreaking", "cnnbrk", "SkyNewsBreak", "ABCNewsLive", "TWCBreaking", "forbes", "mashable", "theonion",
+"time", "gizmodo", "techcrunch", "wired", "wsj", "pitchfork", "rollingstone", "BuzzFeed" ]

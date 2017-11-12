@@ -34,12 +34,16 @@ def get_tweets_by_user(username, number_of_tweets):
     return result
 #
 
-def get_tweets_by_news_accounts(number_of_tweets):
+def get_tweets_from_news_accounts(number_of_tweets):
     result = []
     for account in news_accounts:
         print("Getting tweets from ", account)
         result.append(get_tweets_by_user(account, number_of_tweets))
-    return result
+    flat_result = []
+    for list_of_tweets in result:
+        for item in list_of_tweets:
+            flat_result.append(item)
+    return flat_result
 
 
 # Another way to query tweets:

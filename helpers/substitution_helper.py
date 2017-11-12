@@ -1,4 +1,5 @@
 from helpers.substitutions import *
+from helpers.tweepy_helper import *
 
 def substitute_word(word):
     return substitutions[word]
@@ -52,4 +53,10 @@ def get_most_used_words(list_of_phrases):
                 result[word] += 1
             else:
                 result[word] = 1
+    return result
+
+def get_most_used_words_from_news_accounts(number_of_tweets):
+    tweets = get_tweets_from_news_accounts(number_of_tweets)
+    tweets_text = [clean_tweet(tweet.text) for tweet in tweets]
+    result = get_most_used_words(tweets_text)
     return result
