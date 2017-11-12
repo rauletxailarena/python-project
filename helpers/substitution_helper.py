@@ -1,45 +1,35 @@
 from helpers.substitutions import *
 from helpers.tweepy_helper import *
 
-def substitute_word(word):
-    return substitutions[word]
-
-
-def contains_keyword(phrase):
-    phrase = phrase.split()
-    for word in phrase:
-        word = word.lower()
-        if (word in substitutions):
-            return True
-    else:
-        return False
-
-
-def is_keyword(word):
-    word = word.lower()
-    if (word in substitutions):
-        return True
-    else:
-        return False
 
 def substitute_keywords(phrase):
-    if contains_keyword(phrase):
-        new_phrase = ""
-        phrase = phrase.split()
-        for word in phrase:
-            if is_keyword(word):
-                new_phrase += " "
-                new_phrase += substitutions[word]
-            else:
-                new_phrase += " "
-                new_phrase += word
-        return new_phrase
+    new_phrase = phrase
+    for key in substitutions:
+        if key in phrase:
+            print("key " + key + " found in " + phrase)
+            new_phrase = new_phrase.replace(key, substitutions[key])
+            print("Changing word " +key + " for the word " + substitutions[key])
+    return new_phrase
+
+def contains_keyword(phrase):
+    for key in substitutions:
+        if key in phrase:
+            return True
+    return False
+
+def minimize_words(phrase):
+    new_phrase = ""
+    phrase = phrase.split()
+    for word in phrase:
+        new_phrase += word.lower() + " "
+    return new_phrase
+
 
 def get_sustitutability_index(phrase):
     index = 0
-    phrase = phrase.split()
-    for word in phrase:
-        if is_keyword(word):
+    phrase = minimize_words(phrase)
+    for key in substitutions:
+        if key in phrase:
             index += 1
     return index
 
