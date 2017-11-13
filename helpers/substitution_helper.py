@@ -6,9 +6,9 @@ def substitute_keywords(phrase):
     new_phrase = phrase
     for key in substitutions:
         if key in phrase:
-            print("key " + key + " found in " + phrase)
+            # print("key " + key + " found in " + phrase)
             new_phrase = new_phrase.replace(key, substitutions[key])
-            print("Changing word " +key + " for the word " + substitutions[key])
+            # print("Changing word " +key + " for the word " + substitutions[key])
     return new_phrase
 
 def contains_keyword(phrase):
@@ -65,4 +65,25 @@ def print_ordered_ranking(ranking):
     list_of_keys = list(reversed(sorted(ranking.keys())))
     for key in list_of_keys:
         print("Words with " + str(key) + " occurrences: " + str(ranking[key]))
-        print()  
+        print()
+
+def create_tweet_ranking(list_of_tweets):
+    result = {}
+    for tweet in list_of_tweets:
+        index = get_sustitutability_index(tweet.text)
+        if index in result:
+            result[index].append(tweet.text)
+        else:
+            result[index] = [tweet.text]
+
+    return result
+
+## Takes in a list of tweets and will tweet the first one that hasn't already being tweeted
+def get_ordered_list_with_most_substitutable_tweets(ranking):
+    result = []
+    list_of_keys = list(reversed(sorted(ranking.keys())))
+    for key in list_of_keys:
+        for tweet in ranking[key]:
+            result.append(tweet)
+
+    return result

@@ -34,6 +34,7 @@ def get_tweets_by_user(username, number_of_tweets):
     return result
 #
 
+## Returns a flat list of tweets
 def get_tweets_from_news_accounts(number_of_tweets):
     result = []
     for account in long_news_accounts:
@@ -45,7 +46,15 @@ def get_tweets_from_news_accounts(number_of_tweets):
             flat_result.append(item)
     return flat_result
 
-
+def tweet_helper(list_of_tweets):
+    current_index = 0
+    for tweet in list_of_tweets:
+        try:
+            api.update_status(list_of_tweets[current_index])
+            break
+        except:
+            print("An error occured. Moving onto the next tweet")
+            current_index += 1
 # Another way to query tweets:
 # for tweet in tweepy.Cursor(api.search,
 #                            q='#ocean',

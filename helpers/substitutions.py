@@ -36,9 +36,9 @@ substitutions = {
 "scientist": "Chaning Tatum and his friends",
 "scientists": "Chaning Tatum and his friends",
 "dear friend": "fiendemy",
-"says": "mumbles",
-"say": "mumble",
-"said": "burped",
+"says": "lip-synchs",
+"say": "lip-synch",
+"said": "lip-synched",
 "new study": "tumbler post",
 "google glass": "Virtual Boy",
 "congressional leaders": "river spirits",
@@ -71,5 +71,5 @@ substitutions = {
 "sexual": "a bit awkard",
 "county": "piece of land",
 "misconduct": "being a piece of shit",
-
+"korea": "Narnia"
 }
