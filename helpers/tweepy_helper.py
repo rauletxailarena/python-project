@@ -4,6 +4,7 @@ from helpers.credentials import *
 from helpers.sentiment_analysis_helper import *
 from textblob import TextBlob
 from helpers.news_accounts import *
+from helpers.substitution_helper import *
 
 # Access and authorize our Twitter credentials from credentials.py
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -63,3 +64,16 @@ def tweet_helper(list_of_tweets):
 #                            geocode='1.3552217,103.8231561,100km',
 #                            lang='fr').items(10):
 #     print('Tweet by: @' + tweet.user.screen_name)
+
+
+def run():
+    list_of_tweets =  get_tweets_from_news_accounts(10)
+    list_of_tweet_text = []
+    for tweet in list_of_tweets:
+        list_of_tweet_text.append(tweet.text)
+    tweet_ranking = create_tweet_ranking(list_of_tweets)
+    ordered_list_of_tweets = get_ordered_list_with_most_substitutable_tweets(tweet_ranking)
+    adapted_tweets = []
+    for tweet in ordered_list_of_tweets:
+        adapted_tweets.append(substitute_keywords(tweet))
+    return adapted_tweets
